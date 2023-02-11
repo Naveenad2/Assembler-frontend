@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Assembler-frontend/static/css/main.c2cab247.css",
-    "main.js": "/Assembler-frontend/static/js/main.4f63d7b7.js",
+    "main.js": "/Assembler-frontend/static/js/main.c68b1efc.js",
     "index.html": "/Assembler-frontend/index.html",
     "main.c2cab247.css.map": "/Assembler-frontend/static/css/main.c2cab247.css.map",
-    "main.4f63d7b7.js.map": "/Assembler-frontend/static/js/main.4f63d7b7.js.map"
+    "main.c68b1efc.js.map": "/Assembler-frontend/static/js/main.c68b1efc.js.map"
   },
   "entrypoints": [
     "static/css/main.c2cab247.css",
-    "static/js/main.4f63d7b7.js"
+    "static/js/main.c68b1efc.js"
   ]
 }

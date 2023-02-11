@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Assembler-frontend/static/css/main.c2cab247.css",
+    "main.js": "/Assembler-frontend/static/js/main.8c57c2f0.js",
+    "index.html": "/Assembler-frontend/index.html",
+    "main.c2cab247.css.map": "/Assembler-frontend/static/css/main.c2cab247.css.map",
+    "main.8c57c2f0.js.map": "/Assembler-frontend/static/js/main.8c57c2f0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c2cab247.css",
+    "static/js/main.8c57c2f0.js"
+  ]
+}

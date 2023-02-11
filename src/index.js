@@ -8,7 +8,7 @@ import Codeeditor from './pages/Codeeditor';
 
 const router = createBrowserRouter([
   {path:'/Assembler-frontend/',element:<App/>},
-  {path:'/Assembler-frontend/code',element:<Codeeditor/>},
+  {path:'/codeEditor',element:<Codeeditor/>},
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

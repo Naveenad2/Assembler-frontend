@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { RouterProvider,createBrowserRouter} from "react-router-dom";
+import {RouterProvider,createBrowserRouter} from "react-router-dom";
 import Codeeditor from './pages/Codeeditor';
 
 
 const router = createBrowserRouter([
   {path:'/Assembler-frontend/',element:<App/>},
-  {path:'/codeEditor',element:<Codeeditor/>},
+  {path:'/codeEditor/:id',element:<Codeeditor/>},
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

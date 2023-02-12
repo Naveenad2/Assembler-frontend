@@ -5,12 +5,14 @@ import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
-
+import { useParams } from 'react-router-dom';
 import { Col } from "react-bootstrap";
 import JavaApi from "../Api/javaApi";
 import javaApi from "../Api/javaApi";
 
 function Codeeditor() {
+
+
    let i=0;
   const [codeColor, setcodeColor] = useState("white");
   //code text increment
@@ -33,8 +35,22 @@ function Codeeditor() {
   const [codeChange,setcodeChange] = useState("");
   //state for Registre flag
   const [Flag,setFlag] = useState("dd")
+  //state for saving the code to the database
+  const [saveCodePop, setsaveCodePop] = useState(false);
+  //state for project name
+  const [projectName, setprojectName] = useState("");
 
+  // to get the project id in the link
+  const { id } = useParams();
 
+  if(id!==0){
+ 
+    javaApi.GetCodeWithId(id).then((response)=>{
+      setcode(response.data.codeMnmoncis)
+    })
+  }else{
+    setcode("")
+  }
   function outPutChange() {
     const jsonCode = {
       assemblyCode: code,
@@ -140,12 +156,29 @@ function Codeeditor() {
   const resetRunStepconfig = ()=>{
 
    javaApi.ApiClearMemmory().then((response)=>{
-    console.log(response.data);
+ 
     setrunStep(false)
    });
 
     setincrement(0);
-  }
+  };
+
+  const saveProjectNameInState = (e)=>{
+    setprojectName(e.target.value);
+  };
+
+  const saveCodeFunction =()=>{
+
+    const saveCodeJson = {
+      projectName:projectName,
+      codeMnmoncis:code
+    }
+    javaApi.SaveCode(saveCodeJson).then((response)=>{
+      console.log(response.data);
+    })
+    setsaveCodePop(false);
+  };
+
 
   const textAreaStyle = {
     width: "-webkit-fill-available",
@@ -179,6 +212,15 @@ function Codeeditor() {
     "margin-left": "-110px",
   };
   const runStyle = {
+    "margin-block": "241px",
+    width: "102px",
+    height: "43px",
+    "font-size": "smaller",
+    "font-variant": "all-petite-caps",
+    position: "fixed",
+    "margin-left": "-110px",
+  };
+  const saveStyle = {
     "margin-block": "188px",
     width: "102px",
     height: "43px",
@@ -236,6 +278,13 @@ function Codeeditor() {
               style={debugStyle}
             >
               Debug
+            </Button>
+            <Button
+              onClick={()=>setsaveCodePop(true)}
+              className="btn btn-primary"
+              style={saveStyle}
+            >
+              Save
             </Button>
           </Col>
         </Row>
@@ -359,6 +408,40 @@ function Codeeditor() {
             Close
           </Button>
           <Button onClick={runEachStepOnclick}  variant="primary">Run Each Step</Button>
+        </Modal.Footer>
+      </Modal>
+
+
+
+
+
+
+
+
+
+
+      <Modal show={saveCodePop} onHide={()=>setsaveCodePop(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Save</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Project Name</Form.Label>
+              <Form.Control
+                onChange={saveProjectNameInState}
+                placeholder="Enter your project name"
+                as="textarea"
+            />
+            </Form.Group>
+            
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={()=>setsaveCodePop(false)} variant="secondary" >
+            Close
+          </Button>
+          <Button onClick={saveCodeFunction}  variant="primary">Save</Button>
         </Modal.Footer>
       </Modal>
     </>

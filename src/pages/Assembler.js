@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import Projectbody from '../components/Projectbody'
 import Header from '../components/Header'
 import Container from 'react-bootstrap/Container';
@@ -9,8 +9,25 @@ import Col from 'react-bootstrap/Col';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Createbutton from '../components/Createbutton';
+import javaApi from '../Api/javaApi';
 
 function Assembler() {
+
+  const [list,setList] = useState([]);
+  let demoList = [];
+
+  
+ useEffect(() => {
+  
+  javaApi.ApiShowAllProject().then((response)=>{
+
+    for(let i=0;i<response.data.length;i++){
+       demoList.push(<Col><Projectbody id={response.data[i].id} projectName={response.data[i].projectName}/></Col>)
+      }
+       setList(demoList);
+  })
+ },[])
+  
  
   return (
     <>
@@ -19,50 +36,14 @@ function Assembler() {
        <Container>
       
       <Row>
+     {list}
      
-      <Col>
-      <Projectbody/>
-      </Col>
-      <Col>
-      <Projectbody/>
-      </Col>
-      <Col>
-      <Projectbody/>
-      </Col>
-      <Col>
-      <Projectbody/>
-      </Col>
-      <Col>
-      <Projectbody/>
-      </Col>
-      <Col>
-      <Projectbody/>
-      </Col>
-      <Col>
-      <Projectbody/>
-      </Col>
-      <Col>
-      <Projectbody/>
-      </Col>
-      <Col>
-      <Projectbody/>
-      </Col>
-      <Col>
-      <Projectbody/>
-      </Col>
-      <Col>
-      <Projectbody/>
-      </Col>
-      <Col>
-      <Projectbody/>
-      </Col>
       </Row>
     </Container> 
-    <di>  
+    <div>  
 
        
-
-    </di>
+    </div>
    
     </>
    

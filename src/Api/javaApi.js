@@ -1,12 +1,12 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/run";
-const API_URL_GET = "http://localhost:8080/api/getAdd";
-const API_URL_SET_MEMMORY_VALUE = "http://localhost:8080/api/setMemmoryValue";
-const API_URL_CLEAR_MEMMORY = "http://localhost:8080/api/ClearAll";
-const API_URL_SHOW_ALL_PROJECTS = "http://localhost:8080/api/GetAllProject";
-const API_URL_SAVE_PROJECT = "http://localhost:8080/api/SaveCode";
-const API_URL_GET_CODE_WITH_ID = "http://127.0.0.1:8080/api/getcodewithid/";
+const API_URL = "http://assemblerbackend-env.eba-kianmfyy.us-west-2.elasticbeanstalk.com/api/run";
+const API_URL_GET = "http://assemblerbackend-env.eba-kianmfyy.us-west-2.elasticbeanstalk.com/api/getAdd";
+const API_URL_SET_MEMMORY_VALUE = "http://assemblerbackend-env.eba-kianmfyy.us-west-2.elasticbeanstalk.com/api/setMemmoryValue";
+const API_URL_CLEAR_MEMMORY = "http://assemblerbackend-env.eba-kianmfyy.us-west-2.elasticbeanstalk.com/api/ClearAll";
+const API_URL_SHOW_ALL_PROJECTS = "http://assemblerbackend-env.eba-kianmfyy.us-west-2.elasticbeanstalk.com/api/GetAllProject";
+const API_URL_SAVE_PROJECT = "http://assemblerbackend-env.eba-kianmfyy.us-west-2.elasticbeanstalk.com/api/SaveCode";
+const API_URL_GET_CODE_WITH_ID = "http://assemblerbackend-env.eba-kianmfyy.us-west-2.elasticbeanstalk.com/api/getcodewithid/";
 
 class JavaApi{
 
